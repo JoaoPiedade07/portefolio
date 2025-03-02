@@ -10,7 +10,8 @@ body {
 .main-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Isso mantém o conteúdo centralizado */
+  align-items: center;
+  padding: 20px; /* Isso mantém o conteúdo centralizado */
 }
 
 .header-container {
@@ -34,7 +35,6 @@ span {
   font-weight: bold;
   color: red;
 }
-
 
 .profile-container {
   position: absolute;
@@ -91,3 +91,101 @@ span {
 .icon:nth-child(1):hover {
   color: #333; /* Preto para o GitHub */
 }
+
+.section-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 0px;
+  padding: 20px;
+  gap: 40px;
+}
+
+.section-icon {
+  font-size: 30px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.projects, .languages {
+  width: 40%;
+  text-align: center;
+}
+
+.projects ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.projects li {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.languages-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Estilo dos Cards de Linguagens */
+.language-card {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 120px;
+}
+
+.language-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px; /* Adiciona espaçamento entre os elementos */
+  padding: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  background: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 5px; /* Adiciona espaço na parte inferior */
+}
+
+.project-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.details-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.details-button:hover {
+  background-color: #005f8a;
+}
+

@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight } from 'react-icons/fa';
 
 
 function App() {
@@ -13,13 +13,44 @@ function App() {
     deleteSpeed: 80,
   });
 
-  const images = [
-    {id: 1, src: '/logo192.png', alt: 'React'},
-    {id: 2, src: '/imagens/javascript.svg', alt: 'JavaScript'},
-    {id: 3, src: '/imagens/python.svg', alt: 'Python'},
-    {id: 4, src: '/imagens/java.svg', alt: 'Java'},
-    {id: 4, src: '/imagens/kotlin.svg', alt: 'Kotlin'},
-  ]
+  const languages = [
+    { id: 1, name: 'JavaScript', image: '/imagens/javascript.svg' },
+    { id: 2, name: 'Python', image: '/imagens/python.svg' },
+    { id: 3, name: 'Java', image: '/imagens/java.svg' },
+    { id: 4, name: 'Kotlin', image: '/imagens/kotlin.svg' },
+    { id: 5, name: 'React', image: '/logo192.png' }
+  ];
+
+  const projects = [
+    {
+      id: 1,
+      name: 'JapaoNaMesa',
+      description: 'A japanese cuisine app build in Java using Android Studio.',
+      image: '/imagens/japanese_cuisine.webp',
+      link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2'
+    },
+    {
+      id: 2,
+      name: 'Book Store',
+      description: 'An book store using Kotlin and Firebase.',
+      image: '/imagens/bookstore.avif',
+      link: 'https://github.com/JoaoPiedade07/BookStoreJPGM'
+    },
+    {
+      id: 2,
+      name: 'App Events',
+      description: 'Buildt using React expo, an app to see events and create.',
+      image: '/imagens/events_app.png',
+      link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2'
+    },
+    {
+      id: 4,
+      name: 'To-do List',
+      description: 'An to-do list using Html, Css and JavaScript with Sqllite as database.',
+      image: '/imagens/to_do_list.png',
+      link: 'https://github.com/JoaoPiedade07/BookStoreJPGM'
+    }
+  ];
 
   return (
     <div className = "main-container">
@@ -50,14 +81,40 @@ function App() {
       </div>
       </div>
 
-      <div className="container">
-        <h2> Programing Languages </h2>
-        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-          {images.map((image) => (
-            <img key={image.id} src={image.src} alt={image.alt} style={{ width: '60px', borderRadius: '8px' }} />
-          ))}
-    </div>
-    </div>
+      <h2> Portfolio Showcase: </h2>
+      <p>Explore my journey throught projects and techinical expertise. Each section represents a milestone in my continous learning path.</p>
+
+      <div className="section-container">
+      <div className="projects">
+          <FaCode className="section-icon" /> 
+          <h2>Projects</h2>
+          <div className="projects-grid">
+            {projects.map((projects) => (
+              <div key={projects.id} className="project-card">
+                <img src={projects.image} alt={projects.name} className="project-image" />
+                <h3>{projects.name}</h3>
+                <p>{projects.description}</p>
+                <a href={projects.link} target="_blank" rel="noopener noreferrer" className="details-button">
+                  Details <FaArrowRight />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="languages">
+          <FaLaptop className="section-icon" />
+          <h2>Languages</h2>
+          <div className="languages-grid">
+            {languages.map((languages) => (
+              <div key={languages.id} className="language-card">
+              <img src={languages.image} alt={languages.name} className="language-icon" />
+              <h3>{languages.name}</h3>
+            </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
