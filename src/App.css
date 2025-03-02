@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+@import "@fontsource/fira-code";
+
+body {
+  font-family: "Fira Code", monospace;
+  height: 100vh;
+  margin: 0;
+  background-color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Isso mantém o conteúdo centralizado */
+}
+
+.header-container {
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+  margin-top: 50px;
+}
+
+h1 {
+  margin: 0;
+}
+
+
+h2 {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+span {
+  font-weight: bold;
+  color: red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.profile-container {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  text-align: center; /* Centraliza o nome em relação à imagem */
+}
+
+.profile-container {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  text-align: center; /* Centraliza o texto abaixo da imagem */
+  display: flex;
+  flex-direction: column; /* Organiza a imagem e o nome em coluna */
+  align-items: center; /* Mantém o alinhamento correto */
+}
+
+.profile-img {
+  width: 200px; /* Ajuste conforme necessário */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  margin-top: 5px; /* Dá um pequeno espaço entre a imagem e o nome */
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-tag {
+  margin-top: 0px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px; /* Espaço entre os ícones */
+  margin-top: 5px;
+}
+
+.icon {
+  font-size: 24px; /* Tamanho dos ícones */
+  color: #333; /* Cor padrão */
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #0077b5; /* Azul do LinkedIn quando passar o mouse */
+}
+
+.icon:nth-child(1):hover {
+  color: #333; /* Preto para o GitHub */
 }
