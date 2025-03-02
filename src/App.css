@@ -31,6 +31,11 @@ h2 {
   justify-content: center;
 }
 
+p {
+  font-size: 16px;
+  margin-top: auto;
+}
+
 span {
   font-weight: bold;
   color: red;
@@ -67,7 +72,7 @@ span {
 }
 
 .profile-tag {
-  margin-top: 0px;
+  margin-top: auto;
   font-size: 14px;
   font-weight: bold;
 }
@@ -162,7 +167,10 @@ span {
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-bottom: 5px; /* Adiciona espaço na parte inferior */
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-image {
@@ -178,14 +186,67 @@ span {
   gap: 5px;
   background-color: #007bff;
   color: white;
-  padding: 8px 12px;
+  padding: 8px 15px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
+  margin-top: auto;
+  max-width: 120px;
+  white-space: nowrap;
+  margin-left: auto; /* Isso empurra o botão para a direita */
 }
+
 
 .details-button:hover {
   background-color: #005f8a;
 }
 
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.toggle-buttons button span {
+  color: inherit; /* Mantém a cor original do botão */
+}
+
+.toggle-buttons button {
+  background-color: #f8f9fa;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column; /* Coloca o ícone acima do texto */
+  align-items: center;
+  gap: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.toggle-buttons button:hover {
+  background-color: #bbb;
+}
+
+.toggle-buttons .active {
+  background-color: #007bff;
+  color: white;
+}
+
+.section-icon {
+  font-size: 24px; /* Aumenta o tamanho do ícone */
+}

@@ -1,13 +1,19 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight } from 'react-icons/fa';
 
-
 function App() {
+  const [selectedSection, setSelectedSection] = useState('projects');
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   const [ text ] = useTypewriter({
-    words: [ 'Developer' ],
+    words: [ 'Software Developer', 'FronEnd Developer', 'BackEnd Developer' ],
     loop: {},
     typeSpeed: 120,
     deleteSpeed: 80,
@@ -22,99 +28,97 @@ function App() {
   ];
 
   const projects = [
-    {
-      id: 1,
-      name: 'JapaoNaMesa',
-      description: 'A japanese cuisine app build in Java using Android Studio.',
-      image: '/imagens/japanese_cuisine.webp',
-      link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2'
-    },
-    {
-      id: 2,
-      name: 'Book Store',
-      description: 'An book store using Kotlin and Firebase.',
-      image: '/imagens/bookstore.avif',
-      link: 'https://github.com/JoaoPiedade07/BookStoreJPGM'
-    },
-    {
-      id: 2,
-      name: 'App Events',
-      description: 'Buildt using React expo, an app to see events and create.',
-      image: '/imagens/events_app.png',
-      link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2'
-    },
-    {
-      id: 4,
-      name: 'To-do List',
-      description: 'An to-do list using Html, Css and JavaScript with Sqllite as database.',
-      image: '/imagens/to_do_list.png',
-      link: 'https://github.com/JoaoPiedade07/BookStoreJPGM'
-    }
+    { id: 1, name: 'JapaoNaMesa', description: 'A japanese cuisine app built in Java using Android Studio.', image: '/imagens/japanese_cuisine.webp', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
+    { id: 2, name: 'Book Store', description: 'A book store using Kotlin and Firebase.', image: '/imagens/bookstore.avif', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
+    { id: 3, name: 'App Events', description: 'Built using React Expo, an app to see events and create them.', image: '/imagens/events_app.png', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
+    { id: 4, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
+    { id: 5, name: 'JapaoNaMesa', description: 'A japanese cuisine app built in Java using Android Studio.', image: '/imagens/japanese_cuisine.webp', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
+    { id: 6, name: 'Book Store', description: 'A book store using Kotlin and Firebase.', image: '/imagens/bookstore.avif', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
+    { id: 7, name: 'App Events', description: 'Built using React Expo, an app to see events and create them.', image: '/imagens/events_app.png', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
+    { id: 8, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
+    { id: 9, name: 'App Events', description: 'Built using React Expo, an app to see events and create them.', image: '/imagens/events_app.png', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
+    { id: 10, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
   ];
 
   return (
-    <div className = "main-container">
-      <div className = "header-container">
-        <h1 style = {{ textAlign: 'left', marginLeft: '20px' }}>
+    <div className="main-container">
+      <div className="header-container">
+        <h1 style={{ textAlign: 'left', marginLeft: '20px' }}>
           I'm a {' '}
           <span> { text } </span>
-          <span style = {{ color: 'black' }}>
-          <Cursor cursorStyle = '_'/>
+          <span style={{ color: 'black' }}>
+            <Cursor cursorStyle="_"/>
           </span>
         </h1>
+        <p style = {{ fontSize: 18, marginLeft: '20px', marginTop: '10px' }}>Hello everyone, my name is João Piedade. I am a software engineer student. Over the years, I've developed many projects,<br /> and a deep passion for coding.</p>
       </div>
 
       <div className="profile-container">
-      <img src="/imagens/profile.jpg" alt="Imagem de Perfil" className="profile-img" />
+        <img src="/imagens/profile.jpg" alt="Imagem de Perfil" className="profile-img" />
         <h2 className="profile-name">Joao Piedade</h2>
         <p className="profile-tag">@JoaoPiedade07</p>
         <div className="social-icons">
-        <a href="https://github.com/JoaoPiedade07" target="_blank" rel="noopener noreferrer">
-          <FaGithub className="icon" />
-        </a>
-        <a href="https://www.linkedin.com/in/jo%C3%A3o-piedade-6a5480321/" target="_blank" rel="noopener noreferrer">
-          <FaLinkedin className="icon" />
-        </a>
-        <a href="mailto:joaoluislopespiedade07@gmail.com">
-          <FaEnvelope className="icon" />
-        </a>
-      </div>
+          <a href="https://github.com/JoaoPiedade07" target="_blank" rel="noopener noreferrer">
+            <FaGithub className="icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/jo%C3%A3o-piedade-6a5480321/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="icon" />
+          </a>
+          <a href="mailto:joaoluislopespiedade07@gmail.com">
+            <FaEnvelope className="icon" />
+          </a>
+        </div>
       </div>
 
-      <h2> Portfolio Showcase: </h2>
-      <p>Explore my journey throught projects and techinical expertise. Each section represents a milestone in my continous learning path.</p>
+      <h2>Portfolio Showcase:</h2>
+      <p>Explore my journey through projects and technical expertise. Each section represents a milestone in my continuous learning path.</p>
 
-      <div className="section-container">
-      <div className="projects">
-          <FaCode className="section-icon" /> 
-          <h2>Projects</h2>
+      <div className="toggle-container">
+        <div className="toggle-buttons">
+          <button 
+            className={selectedSection === 'projects' ? 'active' : ''} 
+            onClick={() => setSelectedSection('projects')}
+          >
+            <FaCode className="section-icon" />
+            <span>Projects</span>
+          </button>
+          <button 
+            className={selectedSection === 'languages' ? 'active' : ''} 
+            onClick={() => setSelectedSection('languages')}
+          >
+            <FaLaptop className="section-icon" />
+            <span>Languages</span>
+          </button>
+        </div>
+      </div>
+
+      <motion.div className="section-container" initial="hidden" animate="visible" variants={sectionVariants}>
+        {selectedSection === 'projects' && (
           <div className="projects-grid">
-            {projects.map((projects) => (
-              <div key={projects.id} className="project-card">
-                <img src={projects.image} alt={projects.name} className="project-image" />
-                <h3>{projects.name}</h3>
-                <p>{projects.description}</p>
-                <a href={projects.link} target="_blank" rel="noopener noreferrer" className="details-button">
+            {projects.map((project) => (
+              <motion.div key={project.id} className="project-card" variants={sectionVariants}>
+                <img src={project.image} alt={project.name} className="project-image" />
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="details-button">
                   Details <FaArrowRight />
                 </a>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        )}
 
-        <div className="languages">
-          <FaLaptop className="section-icon" />
-          <h2>Languages</h2>
+        {selectedSection === 'languages' && (
           <div className="languages-grid">
-            {languages.map((languages) => (
-              <div key={languages.id} className="language-card">
-              <img src={languages.image} alt={languages.name} className="language-icon" />
-              <h3>{languages.name}</h3>
-            </div>
+            {languages.map((language) => (
+              <motion.div key={language.id} className="language-card" variants={sectionVariants}>
+                <img src={language.image} alt={language.name} className="language-icon" />
+                <h3>{language.name}</h3>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </div>
+        )}
+      </motion.div>
     </div>
   );
 }
