@@ -92,7 +92,7 @@ function App() {
       {/* Switch de Modo Claro/Escuro */}
       
 
-      <h2>Portfolio Showcasew:</h2>
+      <h2>Portfolio Showcase:</h2>
       <p>Explore my journey through projects and technical expertise. Each section represents a <br />milestone in my continuous learning path.</p>
 
       <div className="toggle-container">
