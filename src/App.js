@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight, FaCoffee, FaMobile, FaAppStoreIos, FaDatabase, FaFolderOpen, FaServer, FaBookOpen, FaNetworkWired, FaTools } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight, FaCoffee, FaMobile, FaAppStoreIos, FaDatabase, FaFolderOpen, FaServer, FaBookOpen, FaNetworkWired, FaTools, FaUtensils } from 'react-icons/fa';
 
 function App() {
   const [selectedSection, setSelectedSection] = useState('projects');
@@ -85,6 +85,9 @@ function App() {
           </div>
           <div className="funFact-card">
             <p><FaFolderOpen className="icon"/>6 Complete Projects </p>
+          </div>
+          <div className="funFact-card">
+            <p><FaUtensils className="icon"/>Love japanese cuisine </p>
           </div>
         </div>
       </div>
