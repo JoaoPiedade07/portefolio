@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight, FaCoffee, FaMobile, FaAppStoreIos, FaDatabase, FaFolderOpen, FaServer } from 'react-icons/fa';
 
 function App() {
   const [selectedSection, setSelectedSection] = useState('projects');
@@ -13,7 +13,7 @@ function App() {
   };
 
   const [ text ] = useTypewriter({
-    words: [ 'Software Developer', 'FronEnd Developer', 'BackEnd Developer' ],
+    words: [ 'Software Developer', 'Full-stack Developer', ],
     loop: {},
     typeSpeed: 120,
     deleteSpeed: 80,
@@ -32,6 +32,7 @@ function App() {
     { id: 2, name: 'Book Store', description: 'A book store using Kotlin and Firebase.', image: '/imagens/bookstore.avif', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
     { id: 3, name: 'App Events', description: 'Built using React Expo, an app to see events and create them.', image: '/imagens/events_app.png', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
     { id: 4, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
+    { id: 5, name: 'Projeto Centro de Saude', description: 'A Website using HTML, CSS and JavaScript of a health center', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
   ];
 
   const [darkMode, setDarkMode] = useState(() => {
@@ -60,6 +61,18 @@ function App() {
         <p style={{ fontSize: 18, marginLeft: '20px', marginTop: '10px ' }}>
           Hello everyone, my name is João Piedade. I am a software engineer student. Over the years,<br /> I've developed many projects, and a deep passion for coding.
         </p>
+        <h4 style={{ textAlign: 'left', marginLeft: '20px' }}>Fun facts:</h4>
+        <div className="funFact-grid">
+          <div className="funFact-card">
+            <p> <FaCode className="icon" />5 code languages</p>
+          </div>
+          <div className="funFact-card">
+            <p> <FaCoffee className="icon" />More than 500 coffes drinked last year </p>
+          </div>
+          <div className="funFact-card">
+            <p> <FaFolderOpen className="icon" />5 Complete Projects </p>
+          </div>
+        </div>
       </div>
 
       <div className="profile-container">
@@ -77,6 +90,7 @@ function App() {
             <FaEnvelope className="icon" />
           </a>
         </div>
+        { /* Slider para dark-mode or light-mode */ }
         <div className="switch-container">
         <label className="theme-switch">
           <input
@@ -89,11 +103,42 @@ function App() {
       </div>
       </div>
 
-      {/* Switch de Modo Claro/Escuro */}
-      
+      <h2 style = {{ margin: '20px' }}>My Services:</h2>
+
+      <div className="services-grid">
+      <div className="service-card">
+        <h3>
+          <FaMobile className="icon" /> Mobile Application
+        </h3>
+        <p>
+          With strong expertise in mobile programming, I master the three main languages in the field: Kotlin, Java, and Swift. My projects are complete and well-structured, demonstrating my ability to develop robust and functional applications, ensuring efficiency and innovation in every development.
+        </p>
+      </div>
+
+      <div className="service-card">
+        <h3><FaServer className="icon" /> Full-stack Developer</h3>
+        <p>
+          I have been studying Full Stack Web Development for four years, gaining solid knowledge in JavaScript, React, and Python, always combined with HTML and CSS to create complete and efficient web applications. My public projects showcase my ability to develop well-structured and functional solutions, both on the front-end and back-end, ensuring high performance and a great user experience.
+        </p>
+      </div>
+
+      <div className="service-card">
+        <h3><FaDatabase className="icon" /> Database Management</h3>
+        <p>
+          I have extensive experience with databases, having worked with various technologies such as MySQL, SQL Server, SQLite, Firebase, and MongoDB. All my large projects are structured with robust databases, ensuring efficiency and scalability. Additionally, I have worked at a company where my role was heavily focused on database management and optimization, further enhancing my skills in this area.
+        </p>
+      </div>
+
+      <div className="service-card">
+        <h3><FaAppStoreIos className="icon" /> API's</h3>
+        <p>
+          One of the things I enjoy most in development is connecting the front-end with the back-end, and using APIs for that is simply amazing. I am highly familiar with APIs and have used them in several large-scale projects, ensuring efficient and well-structured integrations to create dynamic and scalable applications.
+        </p>
+      </div>
+    </div>
 
       <h2>Portfolio Showcase:</h2>
-      <p>Explore my journey through projects and technical expertise. Each section represents a <br />milestone in my continuous learning path.</p>
+      <p style = {{ justifyContent: 'center' }}>Explore my journey through projects and technical expertise. Each section represents a milestone in my continuous learning path.</p>
 
       <div className="toggle-container">
         <div className="toggle-buttons">

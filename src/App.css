@@ -64,8 +64,8 @@ span {
 }
 
 .profile-img {
-  width: 200px; /* Ajuste conforme necessário */
-  height: 200px;
+  width: 170px; /* Ajuste conforme necessário */
+  height: 170px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -326,6 +326,51 @@ input:checked + .slider:before {
 
 .dark-mode span {
   color: yellow;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
+  gap: 20px; /* Espaçamento entre os cards */
+  padding: 20px;
+}
+
+.service-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.funFact-grid {
+  display: flex;
+  gap: 10px; /* Espaço entre os cards */
+}
+
+.funFact-card {
+  display: inline-block;
+  width: fit-content; /* Ajusta a largura ao conteúdo */
+  padding: 10px 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.funFact-card p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
 }
 
 
