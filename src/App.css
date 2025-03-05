@@ -113,7 +113,7 @@ span {
 }
 
 .section-icon {
-  font-size: 30px;
+  font-size: 24px;
   color: #333;
   margin-bottom: 10px;
 }
@@ -136,7 +136,7 @@ span {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.languages-grid {
+.languages-grid, .tools-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -144,7 +144,7 @@ span {
 }
 
 /* Estilo dos Cards de Linguagens */
-.language-card {
+.language-card, .tools-card {
   background: #f4f4f4;
   padding: 10px;
   border-radius: 8px;
@@ -153,7 +153,7 @@ span {
   width: 120px;
 }
 
-.language-icon {
+.language-icon, .tools-icon {
   margin-top: 10px;
   width: 60px;
   height: 60px;
@@ -203,7 +203,6 @@ span {
   margin-left: auto; /* Isso empurra o botão para a direita */
 }
 
-
 .details-button:hover {
   transform: scale(1.05);
 }
@@ -229,6 +228,10 @@ span {
   color: inherit; /* Mantém a cor original do botão */
 }
 
+.toggle-buttons .section-icon {
+  color: inherit; /* Mantém a cor original do botão */
+}
+
 .toggle-buttons button {
   background-color: #f8f9fa;
   border: none;
@@ -251,10 +254,6 @@ span {
 .toggle-buttons .active {
   background-color: #007bff;
   color: white;
-}
-
-.section-icon {
-  font-size: 24px; /* Aumenta o tamanho do ícone */
 }
 
 .theme-switch {
@@ -309,12 +308,17 @@ input:checked + .slider:before {
   color: #ffffff;
 }
 
-.dark-mode .project-card {
-  background: #1e1e1e;
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
-}
+.dark.mode .funFact-grid {
+  background-color: #121212;
+} 
 
-.dark-mode .language-card {
+.dark-mode .project-card,
+.dark-mode .language-card,
+.dark-mode .tools-card,
+.dark-mode .service-card,
+.dark-mode .funFact-card,
+.dark-mode .experiences-card,
+.dark-mode .projects li {
   background: #1e1e1e;
   box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
 }
@@ -324,9 +328,101 @@ input:checked + .slider:before {
   box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
 }
 
+.dark-mode .toggle-buttons button {
+  background: #1e1e1e;
+}
+
 .dark-mode span {
   color: yellow;
 }
+
+.dark-mode .header-container h1,
+.dark-mode h2,
+.dark-mode h3 {
+  color: #ffffff;
+}
+
+.dark-mode .profile-name,
+.dark-mode .profile-tag {
+  color: #ffffff;
+}
+
+.dark-mode .icon,
+.dark-mode .section-icon {
+  color: #bbb; /* Ícones mais suaves */
+}
+
+.dark-mode .icon:hover {
+  color: #0077b5; /* Mantém a cor azul no hover do LinkedIn */
+}
+
+.dark-mode .icon:nth-child(1):hover {
+  color: #ffffff; /* GitHub em branco */
+}
+
+.dark-mode .details-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.dark-mode .details-button:hover {
+  transform: scale(1.05);
+}
+
+.dark-mode .section-container,
+.dark-mode .projects-grid,
+.dark-mode .languages-grid,
+.dark-mode .tools-grid,
+.dark-mode .services-grid,
+.dark-mode .experiences-grid {
+  background: transparent;
+}
+
+.dark-mode .toggle-buttons button {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .toggle-buttons button:hover {
+  background-color: #555;
+}
+
+.dark-mode .toggle-buttons .active {
+  background-color: #007bff;
+  color: white;
+}
+
+.dark-mode .slider {
+  background-color: #555;
+}
+
+.dark-mode input:checked + .slider {
+  background-color: #007bff;
+}
+
+.dark-mode .slider:before {
+  background-color: white;
+}
+
+.dark-mode .profile-container {
+  background: transparent;
+}
+
+.dark-mode .service-card h3,
+.dark-mode .experiences-card h3 {
+  color: #ffffff;
+}
+
+.institution {
+  font-size: 0.9em; /* Deixa menor */
+  color: #777; /* Tom de cinza */
+  font-weight: normal; /* Mantém mais leve para não ficar tão destacado */
+}
+
+.dark-mode .institution {
+  color: #bbb; /* Cinza mais claro para melhor contraste no modo escuro */
+}
+
 
 .services-grid {
   display: grid;
@@ -352,7 +448,8 @@ input:checked + .slider:before {
 
 .funFact-grid {
   display: flex;
-  gap: 10px; /* Espaço entre os cards */
+  gap: 10px;
+  margin-left: 20px; /* Espaço entre os cards */
 }
 
 .funFact-card {
@@ -373,4 +470,38 @@ input:checked + .slider:before {
   margin: 0;
 }
 
+.experiences-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
+  gap: 20px; /* Espaçamento entre os cards */
+  padding: 20px;
+}
+
+.experiences-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Mantém o título e o p alinhados */
+}
+
+.experiences-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0; /* Remove margem extra */
+}
+
+.institution {
+  font-size: 0.9em; /* Deixa menor */
+  color: #777; /* Tom de cinza */
+  font-weight: normal; /* Mantém mais leve para não ficar tão destacado */
+}
 

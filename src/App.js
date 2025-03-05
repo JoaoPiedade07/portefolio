@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight, FaCoffee, FaMobile, FaAppStoreIos, FaDatabase, FaFolderOpen, FaServer } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight, FaCoffee, FaMobile, FaAppStoreIos, FaDatabase, FaFolderOpen, FaServer, FaBookOpen, FaNetworkWired, FaTools } from 'react-icons/fa';
 
 function App() {
   const [selectedSection, setSelectedSection] = useState('projects');
@@ -13,7 +13,7 @@ function App() {
   };
 
   const [ text ] = useTypewriter({
-    words: [ 'Software Developer', 'Full-stack Developer', ],
+    words: [ 'Software Developer', 'Full-stack Web Developer', 'Database Management', 'Mobile Developer' ],
     loop: {},
     typeSpeed: 120,
     deleteSpeed: 80,
@@ -24,7 +24,17 @@ function App() {
     { id: 2, name: 'Python', image: '/imagens/python.svg' },
     { id: 3, name: 'Java', image: '/imagens/java.svg' },
     { id: 4, name: 'Kotlin', image: '/imagens/kotlin.svg' },
-    { id: 5, name: 'React', image: '/logo192.png' }
+    { id: 5, name: 'React', image: '/logo192.png' },
+    { id: 6, name: 'PHP', image: '/imagens/php.svg' },
+  ];
+
+  const tools = [
+    { id: 1, name: 'Android Studio', image: '/imagens/androidStudio.svg' },
+    { id: 2, name: 'Intelija', image: '/imagens/intelija.svg' },
+    { id: 3, name: 'Figma', image: '/imagens/figma.svg' },
+    { id: 4, name: 'Magento', image: '/imagens/magento.svg' },
+    { id: 5, name: 'XCode', image: '/imagens/xcode.svg' },
+    { id: 6, name: 'Unity', image: '/imagens/unity.svg' },
   ];
 
   const projects = [
@@ -59,18 +69,18 @@ function App() {
           </span>
         </h1>
         <p style={{ fontSize: 18, marginLeft: '20px', marginTop: '10px ' }}>
-          Hello everyone, my name is João Piedade. I am a software engineer student. Over the years,<br /> I've developed many projects, and a deep passion for coding.
+          Hello everyone, my name is João Piedade, I'm from Lisbon, Portugal. I am a software engineer student. Over the years,<br /> I've developed many projects, and a deep passion for coding.
         </p>
         <h4 style={{ textAlign: 'left', marginLeft: '20px' }}>Fun facts:</h4>
         <div className="funFact-grid">
           <div className="funFact-card">
-            <p> <FaCode className="icon" />5 code languages</p>
+          <p><FaCode className="icon"/>6 code languages</p>
           </div>
           <div className="funFact-card">
-            <p> <FaCoffee className="icon" />More than 500 coffes drinked last year </p>
+            <p><FaCoffee className="icon"/>More than 500 coffes drinked last year </p>
           </div>
           <div className="funFact-card">
-            <p> <FaFolderOpen className="icon" />5 Complete Projects </p>
+            <p><FaFolderOpen className="icon"/>6 Complete Projects </p>
           </div>
         </div>
       </div>
@@ -103,6 +113,30 @@ function App() {
       </div>
       </div>
 
+      <h2 style = {{ margin: '20px' }}>My Experience:</h2>
+
+      <div className="experiences-grid">
+        <div className="experiences-card">
+          <h3>
+            <FaBookOpen className="icon" /> Programming Teacher 
+            <span className="institution"> - Happy Code</span>
+          </h3>
+          <p style={{ marginTop: '17px' }}>
+            I currently work as a programming teacher for young talents. It's a part-time job.
+          </p>
+        </div>
+
+        <div className="experiences-card">
+          <h3>
+            <FaNetworkWired className="icon" /> IT Technician 
+            <span className="institution"> - ISTEC - Instituto Universitário de Lisboa</span>
+          </h3>
+          <p style={{ marginTop: '17px' }}>
+            Configuração de um Content Management System (CMS) · Gestão de conteúdos de um CMS · Configuração de um sistema XAMPP · Modelação de um sistema de informação · Desenvolvimento de forms em PHP
+          </p>
+        </div>
+      </div>
+
       <h2 style = {{ margin: '20px' }}>My Services:</h2>
 
       <div className="services-grid">
@@ -111,7 +145,7 @@ function App() {
           <FaMobile className="icon" /> Mobile Application
         </h3>
         <p>
-          With strong expertise in mobile programming, I master the three main languages in the field: Kotlin, Java, and Swift. My projects are complete and well-structured, demonstrating my ability to develop robust and functional applications, ensuring efficiency and innovation in every development.
+          With strong expertise in mobile programming, I master the three main languages in the field: React, Java, and Kotlin. My projects are complete and well-structured, demonstrating my ability to develop robust and functional applications, ensuring efficiency and innovation in every development.
         </p>
       </div>
 
@@ -150,6 +184,10 @@ function App() {
             <FaLaptop className="section-icon" />
             <span>Languages</span>
           </button>
+          <button className={selectedSection === 'tools' ? 'active' : ''} onClick={() => setSelectedSection('tools')}>
+            <FaTools className="section-icon" />
+            <span>Tools</span>
+          </button>
         </div>
       </div>
 
@@ -175,6 +213,17 @@ function App() {
               <motion.div key={language.id} className="language-card" variants={sectionVariants}>
                 <img src={language.image} alt={language.name} className="language-icon" />
                 <h3>{language.name}</h3>
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        {selectedSection === 'tools' && (
+          <div className="tools-grid">
+            {tools.map((tools) => (
+              <motion.div key={tools.id} className="tools-card" variants={sectionVariants}>
+                <img src={tools.image} alt={tools.name} className="tools-icon" />
+                <h3>{tools.name}</h3>
               </motion.div>
             ))}
           </div>
