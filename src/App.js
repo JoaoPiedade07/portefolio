@@ -26,6 +26,8 @@ function App() {
     { id: 4, name: 'Kotlin', image: '/imagens/kotlin.svg' },
     { id: 5, name: 'React', image: '/logo192.png' },
     { id: 6, name: 'PHP', image: '/imagens/php.svg' },
+    { id: 7, name: 'Typescript', image: '/imagens/typescript.svg' },
+    { id: 8, name: 'CSharp', image: '/imagens/csharp.svg' },
   ];
 
   const tools = [
@@ -35,6 +37,8 @@ function App() {
     { id: 4, name: 'Magento', image: '/imagens/magento.svg' },
     { id: 5, name: 'XCode', image: '/imagens/xcode.svg' },
     { id: 6, name: 'Unity', image: '/imagens/unity.svg' },
+    { id: 7, name: 'Sqlite', image: '/imagens/sqllite.svg' },
+    { id: 8, name: 'Nodejs', image: '/imagens/nodejs.svg' },
   ];
 
   const projects = [
@@ -74,7 +78,7 @@ function App() {
         <h4 style={{ textAlign: 'left', marginLeft: '20px' }}>Fun facts:</h4>
         <div className="funFact-grid">
           <div className="funFact-card">
-          <p><FaCode className="icon"/>6 code languages</p>
+          <p><FaCode className="icon"/>8 code languages</p>
           </div>
           <div className="funFact-card">
             <p><FaCoffee className="icon"/>More than 500 coffes drinked last year </p>
