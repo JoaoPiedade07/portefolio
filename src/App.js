@@ -47,6 +47,7 @@ function App() {
     { id: 3, name: 'App Events', description: 'Built using React Expo, an app to see events and create them.', image: '/imagens/events_app.png', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
     { id: 4, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
     { id: 5, name: 'Projeto Centro de Saude', description: 'A Website using HTML, CSS and JavaScript of a health center', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
+    { id: 6, name: 'GameBoy', description: 'A Gameboy using HTML, CSS and JavaScript, can play snake game and other', image: '/imagens/gameboy.jpg', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
   ];
 
   const [darkMode, setDarkMode] = useState(() => {
@@ -136,10 +137,10 @@ function App() {
         <div className="experiences-card">
           <h3>
             <FaNetworkWired className="icon" /> IT Technician 
-            <span className="institution"> - ISTEC - Instituto Universitário de Lisboa</span>
+            <span className="institution"> - ISTEC - University Institute of Lisbon</span>
           </h3>
           <p style={{ marginTop: '17px' }}>
-            Configuração de um Content Management System (CMS) · Gestão de conteúdos de um CMS · Configuração de um sistema XAMPP · Modelação de um sistema de informação · Desenvolvimento de forms em PHP
+            Configuring a Content Management System (CMS) · Managing the content of a CMS · Configuring a XAMPP system · Modeling an information system · Developing forms in PHP          
           </p>
         </div>
       </div>
