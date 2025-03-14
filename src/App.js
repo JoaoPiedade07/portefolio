@@ -94,7 +94,7 @@ function App() {
       </div>
 
       <div className="profile-container">
-        <img src="./imagens/profile.jpg" alt="Imagem de Perfil" className="profile-img" />
+        <img src="./profile.jpg" alt="Imagem de Perfil" className="profile-img" />
         <h2 className="profile-name">Joao Piedade</h2>
         <p className="profile-tag">@JoaoPiedade07</p>
         <div className="social-icons">
