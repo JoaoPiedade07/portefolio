@@ -20,34 +20,34 @@ function App() {
   });
 
   const languages = [
-    { id: 1, name: 'JavaScript', image: '/imagens/javascript.svg' },
-    { id: 2, name: 'Python', image: '/imagens/python.svg' },
-    { id: 3, name: 'Java', image: '/imagens/java.svg' },
-    { id: 4, name: 'Kotlin', image: '/imagens/kotlin.svg' },
-    { id: 5, name: 'React', image: '/logo192.png' },
-    { id: 6, name: 'PHP', image: '/imagens/php.svg' },
-    { id: 7, name: 'Typescript', image: '/imagens/typescript.svg' },
-    { id: 8, name: 'CSharp', image: '/imagens/csharp.svg' },
+    { id: 1, name: 'JavaScript', image: './imagens/javascript.svg' },
+    { id: 2, name: 'Python', image: './imagens/python.svg' },
+    { id: 3, name: 'Java', image: './imagens/java.svg' },
+    { id: 4, name: 'Kotlin', image: './imagens/kotlin.svg' },
+    { id: 5, name: 'React', image: './logo192.png' },
+    { id: 6, name: 'PHP', image: './imagens/php.svg' },
+    { id: 7, name: 'Typescript', image: './imagens/typescript.svg' },
+    { id: 8, name: 'CSharp', image: './imagens/csharp.svg' },
   ];
 
   const tools = [
-    { id: 1, name: 'Android Studio', image: '/imagens/androidStudio.svg' },
-    { id: 2, name: 'Intelija', image: '/imagens/intelija.svg' },
-    { id: 3, name: 'Figma', image: '/imagens/figma.svg' },
-    { id: 4, name: 'Magento', image: '/imagens/magento.svg' },
-    { id: 5, name: 'XCode', image: '/imagens/xcode.svg' },
-    { id: 6, name: 'Unity', image: '/imagens/unity.svg' },
-    { id: 7, name: 'Sqlite', image: '/imagens/sqllite.svg' },
-    { id: 8, name: 'Nodejs', image: '/imagens/nodejs.svg' },
+    { id: 1, name: 'Android Studio', image: './imagens/androidStudio.svg' },
+    { id: 2, name: 'Intelija', image: './imagens/intelija.svg' },
+    { id: 3, name: 'Figma', image: './imagens/figma.svg' },
+    { id: 4, name: 'Magento', image: './imagens/magento.svg' },
+    { id: 5, name: 'XCode', image: './imagens/xcode.svg' },
+    { id: 6, name: 'Unity', image: './imagens/unity.svg' },
+    { id: 7, name: 'Sqlite', image: './imagens/sqllite.svg' },
+    { id: 8, name: 'Nodejs', image: './imagens/nodejs.svg' },
   ];
 
   const projects = [
-    { id: 1, name: 'JapaoNaMesa', description: 'A japanese cuisine app built in Java using Android Studio.', image: '/imagens/japanese_cuisine.webp', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
-    { id: 2, name: 'Book Store', description: 'A book store using Kotlin and Firebase.', image: '/imagens/bookstore.avif', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
-    { id: 3, name: 'App Events', description: 'Built using React Expo, an app to see events and create them.', image: '/imagens/events_app.png', link: 'https://github.com/JoaoPiedade07/app-eventos' },
-    { id: 4, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/to_do_list' },
-    { id: 5, name: 'Projeto Centro de Saude', description: 'A Website using HTML, CSS and JavaScript of a health center', image: '/imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/Projeto_Centro_Saude' },
-    { id: 6, name: 'GameBoy', description: 'A Gameboy using HTML, CSS and JavaScript, can play snake game and others', image: '/imagens/gameboy2.png', link: 'https://github.com/JoaoPiedade07/GameBoy' },
+    { id: 1, name: 'JapaoNaMesa', description: 'A japanese cuisine app built in Java using Android Studio.', image: './imagens/japanese_cuisine.webp', link: 'https://github.com/JoaoPiedade07/JapaoNaMesa2' },
+    { id: 2, name: 'Book Store', description: 'A book store using Kotlin and Firebase.', image: './imagens/bookstore.avif', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
+    { id: 3, name: 'App Events', description: 'Built using React Expo, an app to see events and create them.', image: './imagens/events_app.png', link: 'https://github.com/JoaoPiedade07/app-eventos' },
+    { id: 4, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: './imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/to_do_list' },
+    { id: 5, name: 'Projeto Centro de Saude', description: 'A Website using HTML, CSS and JavaScript of a health center', image: './imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/Projeto_Centro_Saude' },
+    { id: 6, name: 'GameBoy', description: 'A Gameboy using HTML, CSS and JavaScript, can play snake game and others', image: './imagens/gameboy2.png', link: 'https://github.com/JoaoPiedade07/GameBoy' },
   ];
 
   const [darkMode, setDarkMode] = useState(() => {
@@ -94,7 +94,7 @@ function App() {
       </div>
 
       <div className="profile-container">
-        <img src="/imagens/profile.jpg" alt="Imagem de Perfil" className="profile-img" />
+        <img src="./imagens/profile.jpg" alt="Imagem de Perfil" className="profile-img" />
         <h2 className="profile-name">Joao Piedade</h2>
         <p className="profile-tag">@JoaoPiedade07</p>
         <div className="social-icons">
