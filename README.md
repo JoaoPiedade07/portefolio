@@ -28,3 +28,30 @@ Este portfólio foi desenvolvido utilizando React, com animações do Framer Mot
 
    ```bash
    git clone https://github.com/JoaoPiedade07/portefolio.git
+
+2. Instale as dependências:
+    
+    ```bash
+    npm install
+    ```
+    
+3. Inicie o servidor de desenvolvimento:
+    
+    ```bash
+    npm start
+    ```
+    
+4. Acesse a aplicação:
+    
+    Abra o navegador e acesse [http://localhost:3000](http://localhost:3000/) .
+    
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+## Contato
+
+- GitHub: JoaoPiedade07
+- LinkedIn: João Piedade
+- Email: [joaoluislopespiedade07@gmail.com](mailto:joaoluislopespiedade07@gmail.com)
