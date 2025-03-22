@@ -64,10 +64,12 @@ span {
 }
 
 .profile-img {
-  width: 170px; /* Ajuste conforme necessário */
-  height: 170px;
+  width: 150px; /* Ajuste conforme necessário */
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
+  display: block;
+  margin: 0 auto; /* Centraliza a imagem horizontalmente */
 }
 
 .profile-name {
@@ -505,3 +507,113 @@ input:checked + .slider:before {
   font-weight: normal; /* Mantém mais leve para não ficar tão destacado */
 }
 
+@media (max-width: 768px) {
+  .header-container {
+    padding-left: 10px;
+    margin-top: 20px;
+  }
+
+  .header-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .funFact-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards se ajustem em várias linhas */
+    gap: 10px;
+    justify-content: center; /* Centraliza os cards */
+    margin: 0 auto; /* Centraliza a grid */
+  }
+  
+  .funFact-card {
+    flex: 1 1 200px; /* Permite que os cards cresçam e encolham, com largura mínima de 200px */
+    max-width: 300px; /* Define uma largura máxima */
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center; /* Centraliza o texto dentro do card */
+  }
+  
+  .funFact-card p {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo */
+    gap: 5px;
+    margin: 0;
+  }
+
+  .profile-container {
+    position: static;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .toggle-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .toggle-buttons {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Adiciona espaçamento entre os elementos */
+    padding: 0px;
+    justify-content: center; /* Centraliza os itens na grade */
+    align-items: center; /* Alinha os itens ao topo */
+    width: 100%; /* Garante que a grade ocupe toda a largura disponível */
+    max-width: 250px; /* Define uma largura máxima para a grade */
+    margin: 0 auto; /* Centraliza a grade na página */
+  }
+
+  .languages-grid, .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card, .language-card, .tools-card {
+    width: 100%;
+  }
+
+  .services-grid, .experiences-grid {
+    grid-template-columns: 1fr;
+  }
+
+  
+}
+
+/* Ajustes adicionais para telas menores */
+@media (max-width: 480px) {
+  .header-container h1 {
+    font-size: 1.2rem;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .toggle-buttons button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .service-card, .experiences-card {
+    padding: 10px;
+  }
+
+  .language-card, .tools-card {
+    width: 100px;
+  }
+}
