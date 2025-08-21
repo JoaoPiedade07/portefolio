@@ -1,10 +1,46 @@
 @import "@fontsource/fira-code";
 
+/* Smooth scrolling and touch improvements */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Fira Code", monospace;
   height: 100vh;
   margin: 0;
   background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .project-card:hover,
+  .language-card:hover,
+  .tools-card:hover,
+  .service-card:hover,
+  .experiences-card:hover,
+  .funFact-card:hover {
+    transform: none;
+  }
+  
+  .toggle-buttons button:hover {
+    transform: none;
+  }
+  
+  .details-button:hover {
+    transform: none;
+  }
+  
+  .icon:hover {
+    transform: none;
+  }
 }
 
 body::-webkit-scrollbar {
@@ -16,7 +52,9 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px; /* Isso mantém o conteúdo centralizado */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .header-container {
@@ -24,21 +62,26 @@ body::-webkit-scrollbar {
   text-align: left;
   padding-left: 20px;
   margin-top: 50px;
+  max-width: 800px;
 }
 
 h1 {
   margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.2;
 }
-
 
 h2 {
   display: flex;
   justify-content: center;
+  font-size: 2rem;
+  margin: 30px 0 20px 0;
 }
 
 p {
   font-size: 16px;
   margin-top: auto;
+  line-height: 1.6;
 }
 
 span {
@@ -50,58 +93,59 @@ span {
   position: absolute;
   top: 25px;
   right: 25px;
-  text-align: center; /* Centraliza o nome em relação à imagem */
-}
-
-.profile-container {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  text-align: center; /* Centraliza o texto abaixo da imagem */
+  text-align: center;
   display: flex;
-  flex-direction: column; /* Organiza a imagem e o nome em coluna */
-  align-items: center; /* Mantém o alinhamento correto */
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .profile-img {
-  width: 150px; /* Ajuste conforme necessário */
-  height: auto;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  margin: 0 auto; /* Centraliza a imagem horizontalmente */
+  margin: 0 auto;
+  border: 3px solid #007bff;
 }
 
 .profile-name {
-  margin-top: 5px; /* Dá um pequeno espaço entre a imagem e o nome */
+  margin-top: 10px;
   font-size: 20px;
   font-weight: bold;
 }
 
 .profile-tag {
-  margin-top: auto;
+  margin-top: 5px;
   font-size: 14px;
   font-weight: bold;
+  color: #666;
 }
 
 .social-icons {
   display: flex;
-  gap: 10px; /* Espaço entre os ícones */
-  margin-top: 5px;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 .icon {
-  font-size: 24px; /* Tamanho dos ícones */
-  color: #333; /* Cor padrão */
-  transition: color 0.3s ease;
+  font-size: 24px;
+  color: #333;
+  transition: all 0.3s ease;
 }
 
 .icon:hover {
-  color: #0077b5; /* Azul do LinkedIn quando passar o mouse */
+  color: #0077b5;
+  transform: scale(1.1);
 }
 
 .icon:nth-child(1):hover {
-  color: #333; /* Preto para o GitHub */
+  color: #333;
 }
 
 .section-container {
@@ -139,20 +183,25 @@ span {
 }
 
 .languages-grid, .tools-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Estilo dos Cards de Linguagens */
 .language-card, .tools-card {
   background: #f4f4f4;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 120px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-card:hover, .tools-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .language-icon, .tools-icon {
@@ -163,99 +212,113 @@ span {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px; /* Adiciona espaçamento entre os elementos */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
   padding: 20px;
-  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .project-card {
   background: #f4f4f4;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-bottom: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .project-image {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .details-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 8px;
   background-color: #007bff;
   color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
-  margin-top: auto;
-  max-width: 120px;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  max-width: 140px;
   white-space: nowrap;
-  margin-left: auto; /* Isso empurra o botão para a direita */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .details-button:hover {
   transform: scale(1.05);
+  background-color: #0056b3;
 }
 
 .toggle-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
-  padding: 10px;
+  margin: 30px 0;
+  padding: 15px;
   background: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: fit-content;
 }
 
 .toggle-buttons {
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .toggle-buttons button span {
-  color: inherit; /* Mantém a cor original do botão */
+  color: inherit;
 }
 
 .toggle-buttons .section-icon {
-  color: inherit; /* Mantém a cor original do botão */
+  color: inherit;
 }
 
 .toggle-buttons button {
   background-color: #f8f9fa;
   border: none;
-  padding: 12px 20px;
+  padding: 15px 25px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: 0.3s;
+  border-radius: 12px;
+  transition: all 0.3s ease;
   font-weight: bold;
   display: flex;
-  flex-direction: column; /* Coloca o ícone acima do texto */
+  flex-direction: column;
   align-items: center;
-  gap: 5px; /* Espaço entre o ícone e o texto */
+  gap: 8px;
+  min-width: 120px;
 }
 
 .toggle-buttons button:hover {
-  background-color: #bbb;
+  background-color: #e9ecef;
+  transform: translateY(-2px);
 }
 
 .toggle-buttons .active {
   background-color: #007bff;
   color: white;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
 
 .theme-switch {
@@ -310,7 +373,7 @@ input:checked + .slider:before {
   color: #ffffff;
 }
 
-.dark.mode .funFact-grid {
+.dark-mode .funFact-grid {
   background-color: #121212;
 } 
 
@@ -322,12 +385,12 @@ input:checked + .slider:before {
 .dark-mode .experiences-card,
 .dark-mode .projects li {
   background: #1e1e1e;
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .dark-mode .toggle-container {
   background: #1e1e1e;
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .dark-mode .toggle-buttons button {
@@ -351,15 +414,15 @@ input:checked + .slider:before {
 
 .dark-mode .icon,
 .dark-mode .section-icon {
-  color: #bbb; /* Ícones mais suaves */
+  color: #bbb;
 }
 
 .dark-mode .icon:hover {
-  color: #0077b5; /* Mantém a cor azul no hover do LinkedIn */
+  color: #0077b5;
 }
 
 .dark-mode .icon:nth-child(1):hover {
-  color: #ffffff; /* GitHub em branco */
+  color: #ffffff;
 }
 
 .dark-mode .details-button {
@@ -369,6 +432,7 @@ input:checked + .slider:before {
 
 .dark-mode .details-button:hover {
   transform: scale(1.05);
+  background-color: #0056b3;
 }
 
 .dark-mode .section-container,
@@ -407,7 +471,8 @@ input:checked + .slider:before {
 }
 
 .dark-mode .profile-container {
-  background: transparent;
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(10px);
 }
 
 .dark-mode .service-card h3,
@@ -416,204 +481,444 @@ input:checked + .slider:before {
 }
 
 .institution {
-  font-size: 0.9em; /* Deixa menor */
-  color: #777; /* Tom de cinza */
-  font-weight: normal; /* Mantém mais leve para não ficar tão destacado */
+  font-size: 0.9em;
+  color: #777;
+  font-weight: normal;
 }
 
 .dark-mode .institution {
-  color: #bbb; /* Cinza mais claro para melhor contraste no modo escuro */
+  color: #bbb;
 }
-
 
 .services-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
-  gap: 20px; /* Espaçamento entre os cards */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
   padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .service-card {
   background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .service-card h3 {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.2rem;
+  gap: 12px;
+  font-size: 1.3rem;
   color: #333;
+  margin-bottom: 15px;
 }
 
 .funFact-grid {
-  display: flex;
-  gap: 10px;
-  margin-left: 20px; /* Espaço entre os cards */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+  max-width: 800px;
 }
 
 .funFact-card {
-  display: inline-block;
-  width: fit-content; /* Ajusta a largura ao conteúdo */
-  padding: 10px 15px;
+  padding: 15px 20px;
   background: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-size: 14px;
-  margin-bottom: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.funFact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .funFact-card p {
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 8px;
   margin: 0;
 }
 
 .experiences-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
-  gap: 20px; /* Espaçamento entre os cards */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
   padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .experiences-card {
   background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experiences-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .title-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Mantém o título e o p alinhados */
+  justify-content: space-between;
 }
 
 .experiences-card h3 {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.2rem;
+  gap: 12px;
+  font-size: 1.3rem;
   color: #333;
-  margin: 0; /* Remove margem extra */
+  margin: 0 0 15px 0;
 }
 
-.institution {
-  font-size: 0.9em; /* Deixa menor */
-  color: #777; /* Tom de cinza */
-  font-weight: normal; /* Mantém mais leve para não ficar tão destacado */
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+  .main-container {
+    padding: 15px;
+  }
+  
+  .header-container {
+    margin-top: 30px;
+    padding-left: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .profile-container {
+    position: static;
+    margin: 20px auto;
+    order: -1;
+  }
+  
+  .services-grid,
+  .experiences-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 800px;
+  }
+  
+  .languages-grid,
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    max-width: 600px;
+  }
 }
 
+/* Responsive Design - Mobile Large */
 @media (max-width: 768px) {
+  .main-container {
+    padding: 10px;
+  }
+  
   .header-container {
     padding-left: 10px;
     margin-top: 20px;
+    text-align: center;
   }
-
+  
   .header-container h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
   }
-
+  
+  .header-container p {
+    text-align: center;
+    font-size: 15px;
+  }
+  
   .funFact-grid {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os cards se ajustem em várias linhas */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
-    justify-content: center; /* Centraliza os cards */
-    margin: 0 auto; /* Centraliza a grid */
+    margin: 15px 0;
   }
   
   .funFact-card {
-    flex: 1 1 200px; /* Permite que os cards cresçam e encolham, com largura mínima de 200px */
-    max-width: 300px; /* Define uma largura máxima */
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    margin-bottom: 20px;
-    text-align: center; /* Centraliza o texto dentro do card */
+    padding: 12px 15px;
+    font-size: 13px;
   }
   
   .funFact-card p {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centraliza o conteúdo */
+    flex-direction: column;
     gap: 5px;
-    margin: 0;
   }
-
+  
   .profile-container {
     position: static;
-    margin-top: 20px;
+    margin: 20px auto;
     text-align: center;
+    order: -1;
+    width: 100%;
+    max-width: 300px;
   }
-
+  
   .profile-img {
     width: 120px;
     height: 120px;
   }
-
+  
   .toggle-container {
     flex-direction: column;
     align-items: center;
+    margin: 20px auto;
   }
-
+  
   .toggle-buttons {
     flex-direction: row;
-    gap: 5px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Adiciona espaçamento entre os elementos */
-    padding: 0px;
-    justify-content: center; /* Centraliza os itens na grade */
-    align-items: center; /* Alinha os itens ao topo */
-    width: 100%; /* Garante que a grade ocupe toda a largura disponível */
-    max-width: 250px; /* Define uma largura máxima para a grade */
-    margin: 0 auto; /* Centraliza a grade na página */
-  }
-
-  .languages-grid, .tools-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-card, .language-card, .tools-card {
-    width: 100%;
-  }
-
-  .services-grid, .experiences-grid {
-    grid-template-columns: 1fr;
-  }
-
   
+  .toggle-buttons button {
+    padding: 12px 18px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+    max-width: 400px;
+  }
+  
+  .project-card {
+    padding: 15px;
+  }
+  
+  .project-image {
+    height: 180px;
+  }
+  
+  .languages-grid,
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    max-width: 400px;
+  }
+  
+  .language-card,
+  .tools-card {
+    padding: 12px;
+  }
+  
+  .language-icon,
+  .tools-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .services-grid,
+  .experiences-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 15px;
+    max-width: 400px;
+  }
+  
+  .service-card,
+  .experiences-card {
+    padding: 20px;
+  }
 }
 
-/* Ajustes adicionais para telas menores */
+/* Responsive Design - Mobile Small */
 @media (max-width: 480px) {
-  .header-container h1 {
-    font-size: 1.2rem;
+  .main-container {
+    padding: 8px;
   }
-
+  
+  .header-container {
+    padding-left: 5px;
+    margin-top: 15px;
+  }
+  
+  .header-container h1 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .header-container p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin: 20px 0 15px 0;
+  }
+  
   .profile-img {
     width: 100px;
     height: 100px;
   }
-
+  
+  .profile-name {
+    font-size: 18px;
+  }
+  
+  .profile-tag {
+    font-size: 12px;
+  }
+  
+  .social-icons {
+    gap: 12px;
+  }
+  
+  .icon {
+    font-size: 20px;
+  }
+  
   .toggle-buttons button {
     padding: 10px 15px;
-    font-size: 14px;
+    font-size: 13px;
+    min-width: 90px;
   }
-
-  .service-card, .experiences-card {
+  
+  .toggle-buttons button span {
+    font-size: 12px;
+  }
+  
+  .funFact-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .funFact-card {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  
+  .projects-grid {
+    padding: 8px;
+    gap: 15px;
+  }
+  
+  .project-card {
+    padding: 12px;
+  }
+  
+  .project-image {
+    height: 160px;
+  }
+  
+  .details-button {
+    padding: 8px 16px;
+    font-size: 13px;
+    max-width: 120px;
+  }
+  
+  .languages-grid,
+  .tools-grid {
+    gap: 12px;
+    padding: 8px;
+  }
+  
+  .language-card,
+  .tools-card {
     padding: 10px;
   }
+  
+  .language-icon,
+  .tools-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .services-grid,
+  .experiences-grid {
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .service-card,
+  .experiences-card {
+    padding: 15px;
+  }
+  
+  .service-card h3,
+  .experiences-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .section-container {
+    padding: 15px 8px;
+  }
+}
 
-  .language-card, .tools-card {
-    width: 100px;
+/* Responsive Design - Extra Small Mobile */
+@media (max-width: 360px) {
+  .header-container h1 {
+    font-size: 1.3rem;
+  }
+  
+  .header-container p {
+    font-size: 13px;
+  }
+  
+  .profile-img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .toggle-buttons {
+    gap: 8px;
+  }
+  
+  .toggle-buttons button {
+    padding: 8px 12px;
+    min-width: 80px;
+  }
+  
+  .funFact-card {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  
+  .project-card {
+    padding: 10px;
+  }
+  
+  .project-image {
+    height: 140px;
+  }
+  
+  .language-card,
+  .tools-card {
+    padding: 8px;
+  }
+  
+  .language-icon,
+  .tools-icon {
+    width: 40px;
+    height: 40px;
   }
 }
