@@ -79,7 +79,7 @@ function App() {
         <h4 style={{ textAlign: 'left', marginLeft: '20px' }}>Fun facts:</h4>
         <div className="funFact-grid">
           <div className="funFact-card">
-          <p><FaCode className="icon"/>8 code languages</p>
+          <p><FaCode className="icon"/>8 code languages learned</p>
           </div>
           <div className="funFact-card">
             <p><FaCoffee className="icon"/>More than 500 coffes drinked last year </p>
