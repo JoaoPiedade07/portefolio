@@ -82,13 +82,13 @@ function App() {
           <p><FaCode className="icon"/>8 code languages learned</p>
           </div>
           <div className="funFact-card">
-            <p><FaCoffee className="icon"/>More than 500 coffes drinked last year </p>
+            <p><FaCoffee className="icon"/>Love coffe</p>
           </div>
           <div className="funFact-card">
-            <p><FaFolderOpen className="icon"/>6 Complete Projects </p>
+            <p><FaFolderOpen className="icon"/>6 Complete Projects</p>
           </div>
           <div className="funFact-card">
-            <p><FaUtensils className="icon"/>Love japanese cuisine </p>
+            <p><FaUtensils className="icon"/>Love japanese cuisine</p>
           </div>
         </div>
       </div>
