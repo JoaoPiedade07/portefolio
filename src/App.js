@@ -48,6 +48,7 @@ function App() {
     { id: 4, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: './imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/to_do_list' },
     { id: 5, name: 'Projeto Centro de Saude', description: 'A Website using HTML, CSS and JavaScript of a health center', image: './imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/Projeto_Centro_Saude' },
     { id: 6, name: 'GameBoy', description: 'A Gameboy using HTML, CSS and JavaScript, can play snake game and others', image: './imagens/gameboy2.png', link: 'https://github.com/JoaoPiedade07/GameBoy' },
+    { id: 7, name: 'TodoApp', description: 'A todo app', image: './imagens/japanese_cuisine.webp', link: 'https://github.com/JoaoPiedade07/GameBoy' },
   ];
 
   const [darkMode, setDarkMode] = useState(() => {
