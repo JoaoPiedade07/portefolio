@@ -2,18 +2,38 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaLaptop, FaArrowRight, FaCoffee, FaMobile, FaAppStoreIos, FaDatabase, FaFolderOpen, FaServer, FaBookOpen, FaNetworkWired, FaTools, FaUtensils } from 'react-icons/fa';
+import { 
+  FaGithub, 
+  FaLinkedin, 
+  FaEnvelope, 
+  FaCode, 
+  FaLaptop, 
+  FaArrowRight, 
+  FaCoffee, 
+  FaMobile, 
+  FaAppStoreIos, 
+  FaDatabase, 
+  FaFolderOpen, 
+  FaServer, 
+  FaBookOpen, 
+  FaNetworkWired, 
+  FaTools, 
+  FaUtensils 
+} from 'react-icons/fa';
 
 function App() {
   const [selectedSection, setSelectedSection] = useState('projects');
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  const [ text ] = useTypewriter({
-    words: [ 'Software Developer', 'Full-stack Web Developer', 'Database Management', 'Mobile Developer' ],
+  const [text] = useTypewriter({
+    words: ['Software Developer', 'Full-stack Web Developer', 'Database Management', 'Mobile Developer'],
     loop: {},
     typeSpeed: 120,
     deleteSpeed: 80,
@@ -46,14 +66,10 @@ function App() {
     { id: 2, name: 'Book Store', description: 'A book store using Kotlin and Firebase.', image: './imagens/bookstore.avif', link: 'https://github.com/JoaoPiedade07/BookStoreJPGM' },
     { id: 3, name: 'App Events', description: 'Built using React Expo, an app to see events and create them.', image: './imagens/events_app.png', link: 'https://github.com/JoaoPiedade07/app-eventos' },
     { id: 4, name: 'To-do List', description: 'A to-do list using HTML, CSS and JavaScript with SQLite as database.', image: './imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/to_do_list' },
-    { id: 5, name: 'Projeto Centro de Saude', description: 'A Website using HTML, CSS and JavaScript of a health center', image: './imagens/to_do_list.png', link: 'https://github.com/JoaoPiedade07/Projeto_Centro_Saude' },
+    { id: 5, name: 'Projeto Centro de Saude', description: 'A Website using HTML, CSS and JavaScript of a health center', image: './imagens/health_center.png', link: 'https://github.com/JoaoPiedade07/Projeto_Centro_Saude' },
     { id: 6, name: 'GameBoy', description: 'A Gameboy using HTML, CSS and JavaScript, can play snake game and others', image: './imagens/gameboy2.png', link: 'https://github.com/JoaoPiedade07/GameBoy' },
-    { id: 7, name: 'TodoApp', description: 'A todo app', image: './imagens/japanese_cuisine.webp', link: 'https://github.com/JoaoPiedade07/GameBoy' },
+    { id: 7, name: 'TodoApp', description: 'A todo app', image: './imagens/todoapp.png', link: 'https://github.com/JoaoPiedade07/TodoApp' },
   ];
-
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
 
   useEffect(() => {
     if (darkMode) {
@@ -65,22 +81,70 @@ function App() {
     }
   }, [darkMode]);
 
+  const renderSelectedSection = () => {
+    switch (selectedSection) {
+      case 'projects':
+        return (
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <motion.div key={project.id} className="project-card" variants={sectionVariants}>
+                <img src={project.image} alt={project.name} className="project-image" />
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="details-button">
+                  Details <FaArrowRight />
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        );
+      
+      case 'languages':
+        return (
+          <div className="languages-grid">
+            {languages.map((language) => (
+              <motion.div key={language.id} className="language-card" variants={sectionVariants}>
+                <img src={language.image} alt={language.name} className="language-icon" />
+                <h3>{language.name}</h3>
+              </motion.div>
+            ))}
+          </div>
+        );
+      
+      case 'tools':
+        return (
+          <div className="tools-grid">
+            {tools.map((tool) => (
+              <motion.div key={tool.id} className="tools-card" variants={sectionVariants}>
+                <img src={tool.image} alt={tool.name} className="tools-icon" />
+                <h3>{tool.name}</h3>
+              </motion.div>
+            ))}
+          </div>
+        );
+      
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className={`main-container ${darkMode ? "dark-mode" : ""}`}>
+      {/* Header Section */}
       <div className="header-container">
-        <h1 style={{ textAlign: 'left', marginLeft: '20px' }}>
+        <h1>
           I'm a <span>{text}</span>
-          <span style={{ color: 'black' }}>
+          <span style={{ color: darkMode ? 'white' : 'black' }}>
             <Cursor cursorStyle="_" />
           </span>
         </h1>
-        <p style={{ fontSize: 18, marginLeft: '20px', marginTop: '10px ' }}>
-          Hello everyone, my name is João Piedade, I'm from Lisbon, Portugal. I am a software engineer student. Over the years,<br /> I've developed many projects, and a deep passion for coding.
+        <p>
+          Hello everyone, my name is João Piedade, I'm from Lisbon, Portugal. I am a software engineer student. Over the years, I've developed many projects, and a deep passion for coding.
         </p>
-        <h4 style={{ textAlign: 'left', marginLeft: '20px' }}>Fun facts:</h4>
+        <h4>Fun facts:</h4>
         <div className="funFact-grid">
           <div className="funFact-card">
-          <p><FaCode className="icon"/>8 code languages learned</p>
+            <p><FaCode className="icon"/>8 code languages learned</p>
           </div>
           <div className="funFact-card">
             <p><FaCoffee className="icon"/>Love coffe</p>
@@ -94,6 +158,7 @@ function App() {
         </div>
       </div>
 
+      {/* Profile Section */}
       <div className="profile-container">
         <img src="./profile.JPG" alt="Imagem de Perfil" className="profile-img" />
         <h2 className="profile-name">Joao Piedade</h2>
@@ -109,20 +174,20 @@ function App() {
             <FaEnvelope className="icon" />
           </a>
         </div>
-        { /* Slider para dark-mode or light-mode */ }
         <div className="switch-container">
-        <label className="theme-switch">
-          <input
-            type="checkbox"
-            checked={darkMode}
-            onChange={() => setDarkMode(!darkMode)}
-          />
-          <span className="slider"></span>
-        </label>
-      </div>
+          <label className="theme-switch">
+            <input
+              type="checkbox"
+              checked={darkMode}
+              onChange={() => setDarkMode(!darkMode)}
+            />
+            <span className="slider"></span>
+          </label>
+        </div>
       </div>
 
-      <h2 style = {{ margin: '20px' }}>My Experience:</h2>
+      {/* Experience Section */}
+      <h2 style={{ margin: '20px 0' }}>My Experience:</h2>
 
       <div className="experiences-grid">
         <div className="experiences-card">
@@ -146,97 +211,82 @@ function App() {
         </div>
       </div>
 
-      <h2 style = {{ margin: '20px' }}>My Services:</h2>
+      {/* Services Section */}
+      <h2 style={{ margin: '20px 0' }}>My Services:</h2>
 
       <div className="services-grid">
-      <div className="service-card">
-        <h3>
-          <FaMobile className="icon" /> Mobile Application
-        </h3>
-        <p>
-          With strong expertise in mobile programming, I master the three main languages in the field: React, Java, and Kotlin. My projects are complete and well-structured, demonstrating my ability to develop robust and functional applications, ensuring efficiency and innovation in every development.
-        </p>
+        <div className="service-card">
+          <h3>
+            <FaMobile className="icon" /> Mobile Application
+          </h3>
+          <p>
+            With strong expertise in mobile programming, I master the three main languages in the field: React, Java, and Kotlin. My projects are complete and well-structured, demonstrating my ability to develop robust and functional applications, ensuring efficiency and innovation in every development.
+          </p>
+        </div>
+
+        <div className="service-card">
+          <h3><FaServer className="icon" /> Full-stack Developer</h3>
+          <p>
+            I have been studying Full Stack Web Development for four years, gaining solid knowledge in JavaScript, React, and Python, always combined with HTML and CSS to create complete and efficient web applications. My public projects showcase my ability to develop well-structured and functional solutions, both on the front-end and back-end, ensuring high performance and a great user experience.
+          </p>
+        </div>
+
+        <div className="service-card">
+          <h3><FaDatabase className="icon" /> Database Management</h3>
+          <p>
+            I have extensive experience with databases, having worked with various technologies such as MySQL, SQL Server, SQLite, Firebase, and MongoDB. All my large projects are structured with robust databases, ensuring efficiency and scalability. Additionally, I have worked at a company where my role was heavily focused on database management and optimization, further enhancing my skills in this area.
+          </p>
+        </div>
+
+        <div className="service-card">
+          <h3><FaAppStoreIos className="icon" /> API's</h3>
+          <p>
+            One of the things I enjoy most in development is connecting the front-end with the back-end, and using APIs for that is simply amazing. I am highly familiar with APIs and have used them in several large-scale projects, ensuring efficient and well-structured integrations to create dynamic and scalable applications.
+          </p>
+        </div>
       </div>
 
-      <div className="service-card">
-        <h3><FaServer className="icon" /> Full-stack Developer</h3>
-        <p>
-          I have been studying Full Stack Web Development for four years, gaining solid knowledge in JavaScript, React, and Python, always combined with HTML and CSS to create complete and efficient web applications. My public projects showcase my ability to develop well-structured and functional solutions, both on the front-end and back-end, ensuring high performance and a great user experience.
-        </p>
-      </div>
-
-      <div className="service-card">
-        <h3><FaDatabase className="icon" /> Database Management</h3>
-        <p>
-          I have extensive experience with databases, having worked with various technologies such as MySQL, SQL Server, SQLite, Firebase, and MongoDB. All my large projects are structured with robust databases, ensuring efficiency and scalability. Additionally, I have worked at a company where my role was heavily focused on database management and optimization, further enhancing my skills in this area.
-        </p>
-      </div>
-
-      <div className="service-card">
-        <h3><FaAppStoreIos className="icon" /> API's</h3>
-        <p>
-          One of the things I enjoy most in development is connecting the front-end with the back-end, and using APIs for that is simply amazing. I am highly familiar with APIs and have used them in several large-scale projects, ensuring efficient and well-structured integrations to create dynamic and scalable applications.
-        </p>
-      </div>
-    </div>
-
+      {/* Portfolio Section */}
       <h2>Portfolio Showcase:</h2>
-      <p style = {{ justifyContent: 'center' }}>Explore my journey through projects and technical expertise. Each section represents a milestone in my continuous learning path.</p>
+      <p style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 20px' }}>
+        Explore my journey through projects and technical expertise. Each section represents a milestone in my continuous learning path.
+      </p>
 
       <div className="toggle-container">
         <div className="toggle-buttons">
-          <button className={selectedSection === 'projects' ? 'active' : ''} onClick={() => setSelectedSection('projects')}>
+          <button 
+            className={selectedSection === 'projects' ? 'active' : ''} 
+            onClick={() => setSelectedSection('projects')}
+          >
             <FaCode className="section-icon" />
             <span>Projects</span>
           </button>
-          <button className={selectedSection === 'languages' ? 'active' : ''} onClick={() => setSelectedSection('languages')}>
+          <button 
+            className={selectedSection === 'languages' ? 'active' : ''} 
+            onClick={() => setSelectedSection('languages')}
+          >
             <FaLaptop className="section-icon" />
             <span>Languages</span>
           </button>
-          <button className={selectedSection === 'tools' ? 'active' : ''} onClick={() => setSelectedSection('tools')}>
+          <button 
+            className={selectedSection === 'tools' ? 'active' : ''} 
+            onClick={() => setSelectedSection('tools')}
+          >
             <FaTools className="section-icon" />
             <span>Tools</span>
           </button>
         </div>
       </div>
 
-      <motion.div className="section-container" initial="hidden" animate="visible" variants={sectionVariants}>
-        {selectedSection === 'projects' && (
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <motion.div key={project.id} className="project-card" variants={sectionVariants}>
-                <img src={project.image} alt={project.name} className="project-image" />
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="details-button">
-                  Details <FaArrowRight />
-                </a>
-              </motion.div>
-            ))}
-          </div>
-        )}
-
-        {selectedSection === 'languages' && (
-          <div className="languages-grid">
-            {languages.map((language) => (
-              <motion.div key={language.id} className="language-card" variants={sectionVariants}>
-                <img src={language.image} alt={language.name} className="language-icon" />
-                <h3>{language.name}</h3>
-              </motion.div>
-            ))}
-          </div>
-        )}
-
-        {selectedSection === 'tools' && (
-          <div className="tools-grid">
-            {tools.map((tools) => (
-              <motion.div key={tools.id} className="tools-card" variants={sectionVariants}>
-                <img src={tools.image} alt={tools.name} className="tools-icon" />
-                <h3>{tools.name}</h3>
-              </motion.div>
-            ))}
-          </div>
-        )}
+      {/* Dynamic Section Content */}
+      <motion.div 
+        className="section-container" 
+        initial="hidden" 
+        animate="visible" 
+        variants={sectionVariants}
+        key={selectedSection}
+      >
+        {renderSelectedSection()}
       </motion.div>
     </div>
   );
